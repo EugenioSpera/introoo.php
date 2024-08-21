@@ -1,28 +1,34 @@
 <?php
 
-class Produto{
+require __DIR__ . "./models/Produto.php";
+require __DIR__ . "./models/Pessoa.php";
+use app\models\{Pessoa, Produto};
 
 
-    //atributos
-
-//acesso tipo nomeAtributo
-public string $nome;
-
-public float $valor;
+// class Produto{
 
 
-//metodos
+//     //atributos
+//     //nomenclatura sempre em PascalCase
 
-public function __construct(){
+// //acesso tipo nomeAtributo
+// public string $nome;
 
-}
-public function __construct($pNome, $pValor){
-    $this->nome=$pNome;
-    this->valor=$pValor;
+// public float $valor;
 
-}
 
-}
+// //metodos
+
+// // public function __construct(){
+
+// // }
+// // public function __construct($pNome, $pValor){
+// //     $this->nome=$pNome;
+// //     $this->valor=$pValor;
+
+// // }
+
+// }
 
 
 
@@ -30,20 +36,27 @@ public function __construct($pNome, $pValor){
 //nome e valor 
 
 $produto1 = new Produto(); // quando usa new, estamos criando um novo objeto.
-$produto1->nome="Queijo";
-$produto1->valor=20.00;
+$produto1->setNome("Queijo");
+$produto1->setValor(20.00);
 
 
-$produto2 = new Produto("Coca Cola", 10.00); // quando usa new, estamos criando um novo objeto.
+$produto2 = new Produto(); // quando usa new, estamos criando um novo objeto.
+$produto2->setNome("Coca-cola");
+$produto2->setValor(8.00);
+
+$cliente = new Pessoa("Juca","55599988877",41);
 
 
 
 
 
-echo " O valor do produto ".$produto1->nome . " é R$ " .$produto1->valor . "<br>"; 
+echo "Produto 1: ".$produto1->getNome() . "; " .$produto1->getValor() . "<br>"; 
 
 
-echo " O valor do produto ".$produto2->nome . " é R$ " .$produto2->valor;
+echo "Produto 2: ".$produto2->getNome() . "; " .$produto2->getValor() . "<br>"; 
+
+
+echo " Pessoa 1: ".$cliente->getNome() . "; " .$cliente->getCpf() . "; " .$cliente->getIdade();
 
 
 
