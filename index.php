@@ -1,64 +1,52 @@
 <?php
+ 
+// Corrigir os caminhos dos arquivos
+require __DIR__ . "/app/models/Produto.php";
+require __DIR__ . "/app/models/Pessoa.php";
+ 
+use app\models\{Pessoa,Produto}; // nome do pacote namespace;
+ 
+$x = 10;
+$y = 1000;
+ 
+$x = $y;
+$y = 100;
+ 
+// $pessoa1 = new Pessoa("Magali", "22233344455",$dataNascimento);
+// $pessoa2 = new Pessoa("Cebolinha", "11133344422",$dataNascimento);
+ 
+// $pessoa2 = $pessoa1;
+// $pessoa1->setNome("Mônica");
+ 
+ 
+//var_dump($x);
+//var_dump($y);
+//var_dump($pessoa1);
+//var_dump($pessoa2);
+ 
+ //Criar instâncias das classes e definir propriedades
+ $produto1 = new Produto(); // criando o objeto | Instanciando a classe
+ $produto1->setNome("Queijo");
+ $produto1->setValor(20.00);
+ 
+ $produto2 = new Produto();
+ $produto2->setNome("Coca-cola"); // Corrigido de "-" para "="
+ 
+ try {
+     $produto2->setValor(8,00);
+ } catch (\Throwable $th) {
+     echo $th->getMessage(); //mensagem de erro caso algo inesperado ocorra
+ }
+ 
+$dataNascimento = new DateTime('1994-06-25');
 
-require __DIR__ . "./models/Produto.php";
-require __DIR__ . "./models/Pessoa.php";
-use app\models\{Pessoa, Produto};
+$cliente = new Pessoa("Juca","55599988877",$dataNascimento);
+ 
+//   echo "Produto 1: " . $produto1->getNome() . "; " . $produto1->getValor() . "<br>";
 
-
-// class Produto{
-
-
-//     //atributos
-//     //nomenclatura sempre em PascalCase
-
-// //acesso tipo nomeAtributo
-// public string $nome;
-
-// public float $valor;
-
-
-// //metodos
-
-// // public function __construct(){
-
-// // }
-// // public function __construct($pNome, $pValor){
-// //     $this->nome=$pNome;
-// //     $this->valor=$pValor;
-
-// // }
-
-// }
-
-
-
-//Classe produto
-//nome e valor 
-
-$produto1 = new Produto(); // quando usa new, estamos criando um novo objeto.
-$produto1->setNome("Queijo");
-$produto1->setValor(20.00);
-
-
-$produto2 = new Produto(); // quando usa new, estamos criando um novo objeto.
-$produto2->setNome("Coca-cola");
-$produto2->setValor(8.00);
-
-$cliente = new Pessoa("Juca","55599988877",41);
-
-
-
-
-
-echo "Produto 1: ".$produto1->getNome() . "; " .$produto1->getValor() . "<br>"; 
-
-
-echo "Produto 2: ".$produto2->getNome() . "; " .$produto2->getValor() . "<br>"; 
-
-
-echo " Pessoa 1: ".$cliente->getNome() . "; " .$cliente->getCpf() . "; " .$cliente->getIdade();
-
-
-
-
+  echo$produto1->exibirDadosProduto() . "<br>";
+  echo$produto2->exibirDadosProduto() . "<br>"; 
+  echo$cliente->exibirDadosPessoa() . "<br>";  
+  echo$cliente->retornarIdadePessoa() . "<br>";
+  
 ?>
